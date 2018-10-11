@@ -20,7 +20,7 @@ public class TestingMain {
         int b = 15;
 
 
-        if (calculator.add(a, b) == (a + b) && calculator.substract(a, b) == (a - b)) {
+        if (calculator.add(a, b) == (a  + b) && calculator.substract(a, b) == (a - b)) {
             System.out.println("second test OK");
         } else {
             System.out.println("Error! - second test");
