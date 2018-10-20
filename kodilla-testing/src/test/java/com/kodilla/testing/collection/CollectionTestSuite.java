@@ -35,7 +35,7 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList(){
         //Given
         ArrayList<Integer> numbers = new ArrayList<Integer>();
-        for(Integer i = 0; i < 10; i++ ){
+        for (Integer i = 0; i < 10; i++ ) {
             numbers.add(i);
         }
         //When
@@ -43,7 +43,7 @@ public class CollectionTestSuite {
         ArrayList<Integer> result =  exterminator.exterminate(numbers);
         //Then
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
-        for(Integer i = 0; i < 10; i = i + 2){
+        for (Integer i = 0; i < 10; i = i + 2) {
             evenNumbers.add(i);
         }
         Assert.assertEquals(result, evenNumbers);
