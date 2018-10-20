@@ -1,31 +1,32 @@
 package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ShapeCollector {
-    public ArrayList<Shape> shapeList = new ArrayList<Shape>();
+
+    List<Shape> shapes = new ArrayList<>();
 
     public void addFigure(Shape shape) {
-
-        this.shapeList.add (shape);
+        shapes.add (shape);
     }
+
     public boolean removeFigure(Shape shape) {
         boolean result = false;
-        if (this.shapeList.contains(shape)){
-            this.shapeList.remove(shape);
-            result = true;
-        }
-        return result;
+        if (shapes.contains(shape)) {
+            shapes.remove(shape);
+            return true;
+        } else return false;
+    }
 
-    }
     public Shape getFigure(int n) {
-        return this.shapeList.get(n);
+        return shapes.get(n);
     }
-    public ArrayList<String> showFigures() {
-        ArrayList<String> result = new ArrayList<String>();
-        for (Shape figure: this.shapeList) {
-            result.add(("Figure number: " + (shapeList.indexOf(figure) + 1)+ "; figure name: " + figure.getShapeName() + "; field: " + figure.getField()));
-            System.out.println("Figure number: " + (shapeList.indexOf(figure) + 1)+ "; figure name: " + figure.getShapeName() + "; field: " + figure.getField());
+
+    public String showFigures() {
+        String result = "";
+        for (Shape figure: shapes) {
+            result += figure.toString();
         }
         return result;
     }

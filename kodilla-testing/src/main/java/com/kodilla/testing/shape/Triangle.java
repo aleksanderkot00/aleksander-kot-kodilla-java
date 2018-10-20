@@ -3,11 +3,12 @@ package com.kodilla.testing.shape;
 import java.util.Objects;
 
 public class Triangle implements Shape {
-    private double baseLength;
-    private double height;
 
-    public Triangle(double baseLength, double height) {
-        this.baseLength = baseLength;
+    private final double base;
+    private final double height;
+
+    public Triangle(double base, double height) {
+        this.base = base;
         this.height = height;
     }
 
@@ -16,7 +17,7 @@ public class Triangle implements Shape {
     }
 
     public double getField() {
-        return 0.5*this.baseLength*this.height;
+        return 0.5 * base * height;
     }
 
     @Override
@@ -24,7 +25,17 @@ public class Triangle implements Shape {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Triangle triangle = (Triangle) o;
-        return Double.compare(triangle.baseLength, baseLength) == 0 &&
+        return Double.compare(triangle.base, base) == 0 &&
                 Double.compare(triangle.height, height) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(base, height);
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle(" + base + "," + height + "), field - " + getField() + "; ";
     }
 }

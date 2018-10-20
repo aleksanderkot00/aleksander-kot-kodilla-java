@@ -3,6 +3,7 @@ package com.kodilla.testing.forum;
 import java.util.Objects;
 
 public class ForumComment {
+
     ForumPost forumPost;
     String commentBody;
     String author;
