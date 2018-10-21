@@ -5,7 +5,11 @@ import java.util.List;
 
 public class ShapeCollector {
 
-    List<Shape> shapes = new ArrayList<>();
+    private List<Shape> shapes = new ArrayList<>();
+
+    public List<Shape> getShapes() {
+        return shapes;
+    }
 
     public void addFigure(Shape shape) {
         shapes.add (shape);
@@ -24,10 +28,11 @@ public class ShapeCollector {
     }
 
     public String showFigures() {
-        String result = "";
+        String string = "";
+        StringBuilder sB = new StringBuilder(string);
         for (Shape figure: shapes) {
-            result += figure.toString();
+            sB.append(figure.toString() + ", field - " + figure.getField() + "; ");
         }
-        return result;
+        return sB.toString();
     }
 }

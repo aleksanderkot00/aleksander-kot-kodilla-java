@@ -33,6 +33,6 @@ public class Square implements Shape {
 
     @Override
     public String toString() {
-        return "Square(" + side + "), field - " + getField() + "; ";
+        return "Square(" + side + ")";
     }
 }

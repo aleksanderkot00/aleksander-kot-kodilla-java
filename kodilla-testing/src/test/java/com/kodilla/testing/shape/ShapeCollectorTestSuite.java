@@ -31,7 +31,7 @@ public class ShapeCollectorTestSuite {
         collector.addFigure(new Triangle(2,6));
         //When
         Shape shape = new Triangle(2,6);
-        boolean result = collector.shapes.contains(shape);
+        boolean result = collector.getShapes().contains(shape);
         //Then
         Assert.assertTrue(result);
     }
