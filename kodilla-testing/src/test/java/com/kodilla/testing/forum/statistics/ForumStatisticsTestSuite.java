@@ -25,7 +25,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(16);
         when(statisticsMock.postsCount()).thenReturn(0);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
         calculator.calculateAdvStatistics(statisticsMock);
         //When
         ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 0, 16, 0 / 5.0, 16 / 5.0, 0.0);
@@ -47,7 +47,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(16);
         when(statisticsMock.postsCount()).thenReturn(1000);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
         calculator.calculateAdvStatistics(statisticsMock);
         //When
         ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 1000, 16, 1000 / 5.0, 16 / 5.0, 16 / 1000.0);
@@ -69,7 +69,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(0);
         when(statisticsMock.postsCount()).thenReturn(1000);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
         calculator.calculateAdvStatistics(statisticsMock);
         //When
         ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 1000, 0, 1000 / 5.0, 0 / 5.0, 0 / 1000.0);
@@ -91,7 +91,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(14);
         when(statisticsMock.postsCount()).thenReturn(23);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
         calculator.calculateAdvStatistics(statisticsMock);
         //When
         ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 23, 14, 23 / 5.0, 14 / 5.0, 14 / 23.0);
@@ -113,7 +113,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(54);
         when(statisticsMock.postsCount()).thenReturn(7);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
         calculator.calculateAdvStatistics(statisticsMock);
         //When
         ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 7, 54, 7 / 5.0, 54 / 5.0, 54 / 7.0);
@@ -130,7 +130,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(16);
         when(statisticsMock.postsCount()).thenReturn(13);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
         calculator.calculateAdvStatistics(statisticsMock);
         //When
         ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(0, 13, 16, 0.0, 0.0, 16 / 13.0);
@@ -150,7 +150,7 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(16);
         when(statisticsMock.postsCount()).thenReturn(13);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
         calculator.calculateAdvStatistics(statisticsMock);
         //When
         ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(100, 13, 16, 13 / 100.0, 16 / 100.0, 16 / 13.0);

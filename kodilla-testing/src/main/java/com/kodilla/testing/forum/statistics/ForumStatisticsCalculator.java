@@ -44,6 +44,9 @@ public class ForumStatisticsCalculator {
         this.commentsPerPost = commentsPerPost;
     }
 
+    public ForumStatisticsCalculator() {
+    }
+
     public void calculateAdvStatistics(Statistics statistics) {
         usersNumber = statistics.usersNames().size();
         postsNumber = statistics.postsCount();
