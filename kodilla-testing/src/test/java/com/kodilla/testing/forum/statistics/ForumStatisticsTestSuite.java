@@ -12,7 +12,7 @@ import static org.mockito.Mockito.when;
 public class ForumStatisticsTestSuite {
 
     @Test
-    public void testCommentsPerPost0Posts() {
+    public void testCalculateAdvStatistics0Posts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
             List<String> users = new ArrayList<>();
@@ -25,60 +25,16 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(16);
         when(statisticsMock.postsCount()).thenReturn(0);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
         calculator.calculateAdvStatistics(statisticsMock);
         //When
-        double commentsPerPost = calculator.getCommentsPerPost();
+        ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 0, 16, 0 / 5.0, 16 / 5.0, 0.0);
         //Then
-        Assert.assertEquals(16 / (double) 0, commentsPerPost,0.000001);
+        Assert.assertEquals(expectedCalculator, calculator);
     }
 
     @Test
-    public void testPostPerUser0Posts() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(16);
-        when(statisticsMock.postsCount()).thenReturn(0);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double postPerUser = calculator.getPostsPerUser();
-        //Then
-        Assert.assertEquals(0 / (double) 5, postPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerUser0Posts() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(16);
-        when(statisticsMock.postsCount()).thenReturn(0);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double commentsPerUser = calculator.getCommentsPerUser();
-        //Then
-        Assert.assertEquals(16 / (double) 5, commentsPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerPost1000Posts() {
+    public void testCalculateAdvStatistics1000Posts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> users = new ArrayList<>();
@@ -91,60 +47,16 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(16);
         when(statisticsMock.postsCount()).thenReturn(1000);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
         calculator.calculateAdvStatistics(statisticsMock);
         //When
-        double commentsPerPost = calculator.getCommentsPerPost();
+        ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 1000, 16, 1000 / 5.0, 16 / 5.0, 16 / 1000.0);
         //Then
-        Assert.assertEquals(16 / (double) 1000, commentsPerPost,0.000001);
+        Assert.assertEquals(expectedCalculator, calculator);
     }
 
     @Test
-    public void testPostPerUser1000Posts() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(16);
-        when(statisticsMock.postsCount()).thenReturn(1000);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double postPerUser = calculator.getPostsPerUser();
-        //Then
-        Assert.assertEquals(1000 / (double) 5, postPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerUser1000Posts() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(16);
-        when(statisticsMock.postsCount()).thenReturn(1000);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double commentsPerUser = calculator.getCommentsPerUser();
-        //Then
-        Assert.assertEquals(16 / (double) 5, commentsPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerPost0Comments() {
+    public void testCalculateAdvStatistics0Comments() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> users = new ArrayList<>();
@@ -157,60 +69,16 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(0);
         when(statisticsMock.postsCount()).thenReturn(1000);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
         calculator.calculateAdvStatistics(statisticsMock);
         //When
-        double commentsPerPost = calculator.getCommentsPerPost();
+        ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 1000, 0, 1000 / 5.0, 0 / 5.0, 0 / 1000.0);
         //Then
-        Assert.assertEquals(0 / (double) 1000, commentsPerPost,0.000001);
+        Assert.assertEquals(expectedCalculator, calculator);
     }
 
     @Test
-    public void testPostPerUser0Comments() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(0);
-        when(statisticsMock.postsCount()).thenReturn(1000);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double postPerUser = calculator.getPostsPerUser();
-        //Then
-        Assert.assertEquals(1000 / (double) 5, postPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerUser0Comments() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(0);
-        when(statisticsMock.postsCount()).thenReturn(1000);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double commentsPerUser = calculator.getCommentsPerUser();
-        //Then
-        Assert.assertEquals(0 / (double) 5, commentsPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerPostLessCommentsThanPosts() {
+    public void testCalculateAdvStatisticsLessCommentsThanPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> users = new ArrayList<>();
@@ -223,60 +91,16 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(14);
         when(statisticsMock.postsCount()).thenReturn(23);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
         calculator.calculateAdvStatistics(statisticsMock);
         //When
-        double commentsPerPost = calculator.getCommentsPerPost();
+        ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 23, 14, 23 / 5.0, 14 / 5.0, 14 / 23.0);
         //Then
-        Assert.assertEquals(14 / (double) 23, commentsPerPost,0.000001);
+        Assert.assertEquals(expectedCalculator, calculator);
     }
 
     @Test
-    public void testPostPerUserLessCommentsThanPosts() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(14);
-        when(statisticsMock.postsCount()).thenReturn(23);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double postPerUser = calculator.getPostsPerUser();
-        //Then
-        Assert.assertEquals(23 / (double) 5, postPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerUserLessCommentsThanPosts() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(14);
-        when(statisticsMock.postsCount()).thenReturn(23);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double commentsPerUser = calculator.getCommentsPerUser();
-        //Then
-        Assert.assertEquals( 14 / (double) 5, commentsPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerPostGreaterCommentsThanPosts() {
+    public void testCalculateAdvStatisticsGreaterCommentsThanPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> users = new ArrayList<>();
@@ -289,60 +113,16 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(54);
         when(statisticsMock.postsCount()).thenReturn(7);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
         calculator.calculateAdvStatistics(statisticsMock);
         //When
-        double commentsPerPost = calculator.getCommentsPerPost();
+        ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(5, 7, 54, 7 / 5.0, 54 / 5.0, 54 / 7.0);
         //Then
-        Assert.assertEquals(54 / (double) 7, commentsPerPost,0.000001);
+        Assert.assertEquals(expectedCalculator, calculator);
     }
 
     @Test
-    public void testPostPerUserGreaterCommentsThanPosts() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(54);
-        when(statisticsMock.postsCount()).thenReturn(7);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double postPerUser = calculator.getPostsPerUser();
-        //Then
-        Assert.assertEquals(7 / (double) 5, postPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerUserGreaterCommentsThanPosts() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        users.add("User1");
-        users.add("User2");
-        users.add("User3");
-        users.add("User4");
-        users.add("User5");
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(54);
-        when(statisticsMock.postsCount()).thenReturn(7);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double commentsPerUser = calculator.getCommentsPerUser();
-        //Then
-        Assert.assertEquals( 54 / (double) 5, commentsPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerPost0Users() {
+    public void testCalculateAdvStatistics0Users() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> users = new ArrayList<>();
@@ -350,50 +130,16 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(16);
         when(statisticsMock.postsCount()).thenReturn(13);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
         calculator.calculateAdvStatistics(statisticsMock);
         //When
-        double commentsPerPost = calculator.getCommentsPerPost();
+        ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(0, 13, 16, 0.0, 0.0, 16 / 13.0);
         //Then
-        Assert.assertEquals(16 / (double) 13, commentsPerPost,0.000001);
+        Assert.assertEquals(expectedCalculator, calculator);
     }
 
     @Test
-    public void testPostPerUser0Users() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(16);
-        when(statisticsMock.postsCount()).thenReturn(13);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double postPerUser = calculator.getPostsPerUser();
-        //Then
-        Assert.assertEquals(13 / (double) 0, postPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerUser0Users() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(16);
-        when(statisticsMock.postsCount()).thenReturn(13);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double commentsPerUser = calculator.getCommentsPerUser();
-        //Then
-        Assert.assertEquals(16 / (double) 0, commentsPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerPost100Users() {
+    public void testCalculateAdvStatistics100Users() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> users = new ArrayList<>();
@@ -404,51 +150,11 @@ public class ForumStatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(16);
         when(statisticsMock.postsCount()).thenReturn(13);
 
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
+        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator(0,0,0,0,0,0);
         calculator.calculateAdvStatistics(statisticsMock);
         //When
-        double commentsPerPost = calculator.getCommentsPerPost();
+        ForumStatisticsCalculator expectedCalculator = new ForumStatisticsCalculator(100, 13, 16, 13 / 100.0, 16 / 100.0, 16 / 13.0);
         //Then
-        Assert.assertEquals(16 / (double) 13, commentsPerPost,0.000001);
-    }
-
-    @Test
-    public void testPostPerUser100Users() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            users.add("User" + (i + 1));
-        }
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(16);
-        when(statisticsMock.postsCount()).thenReturn(13);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double postPerUser = calculator.getPostsPerUser();
-        //Then
-        Assert.assertEquals(13 / (double) 100, postPerUser,0.000001);
-    }
-
-    @Test
-    public void testCommentsPerUser100Users() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        List<String> users = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            users.add("User" + (i + 1));
-        }
-        when(statisticsMock.usersNames()).thenReturn(users);
-        when(statisticsMock.commentsCount()).thenReturn(16);
-        when(statisticsMock.postsCount()).thenReturn(13);
-
-        ForumStatisticsCalculator calculator = new ForumStatisticsCalculator();
-        calculator.calculateAdvStatistics(statisticsMock);
-        //When
-        double commentsPerUser = calculator.getCommentsPerUser();
-        //Then
-        Assert.assertEquals(16 / (double) 100, commentsPerUser,0.000001);
+        Assert.assertEquals(expectedCalculator, calculator);
     }
 }
