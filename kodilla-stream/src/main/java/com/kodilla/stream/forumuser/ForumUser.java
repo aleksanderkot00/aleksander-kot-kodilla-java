@@ -1,6 +1,7 @@
 package com.kodilla.stream.forumuser;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class ForumUser {
 
@@ -47,5 +48,22 @@ public class ForumUser {
                 ", birthdate=" + birthdate +
                 ", postsNumber=" + postsNumber +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ForumUser forumUser = (ForumUser) o;
+        return userId == forumUser.userId &&
+                sex == forumUser.sex &&
+                postsNumber == forumUser.postsNumber &&
+                Objects.equals(userName, forumUser.userName) &&
+                Objects.equals(birthdate, forumUser.birthdate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, userName, sex, birthdate, postsNumber);
     }
 }
