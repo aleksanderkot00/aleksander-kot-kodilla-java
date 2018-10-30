@@ -31,7 +31,5 @@ public class FirstChallenge {
             System.out.println("End of arithmetic operation.");
 
         }
-
-
     }
 }
