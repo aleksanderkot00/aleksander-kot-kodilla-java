@@ -9,7 +9,7 @@ public class ExceptionHandling {
         try {
             System.out.println(secondChallenge.probablyIWillThrowException(0.9, 1.6));
         } catch (Exception e) {
-            System.out.println("Exeption has foud! " + e);
+            System.out.println("Exception has been found! " + e);
         } finally {
             System.out.println("End of program.");
         }
