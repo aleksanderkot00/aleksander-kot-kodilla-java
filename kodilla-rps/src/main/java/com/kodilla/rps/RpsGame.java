@@ -63,10 +63,19 @@ public class RpsGame {
     }
 
     private void endOfGame() {
-        System.out.println("Are you sure that you wont end this game? y - yes; n - no");
-        if (scanner.nextLine().equals("y")) {
-            end = true;
-            System.out.println("End of the game.");
+        boolean rightSign = false;
+        while (!rightSign) {
+            System.out.println("Are you sure that you want end this game? y - yes; n - no");
+            String choice = scanner.nextLine();
+            if (choice.equals("y")) {
+                end = true;
+                System.out.println("End of the game.");
+                rightSign = true;
+            } else if (choice.equals("n")) {
+                rightSign = true;
+            } else {
+                System.out.println("Wrong sign!");
+            }
         }
     }
 
@@ -77,8 +86,7 @@ public class RpsGame {
 
     private void stateOfGame() {
         System.out.println("\nScore: computer - " + computerWinsNumber + "; " + playerName + " - " + playerWinsNumber);
-        System.out.println("1 - r" +
-                "ock; 2 - paper; 3 - scissors; x - end of the game; n - new game");
+        System.out.println("1 - rock; 2 - paper; 3 - scissors; x - end of the game; n - new game");
     }
 
     private void userChoiceChecker(String userChoice) {
@@ -93,17 +101,30 @@ public class RpsGame {
                 else {
                     System.out.println("You lost the game!");
                 }
-                System.out.println("Would you like to play again?");
-                if (scanner.nextLine().equals("y")) {
-                    newGame();
-                } else {
-                    endOfGame();
+                boolean rightSign = false;
+                while (!rightSign) {
+                    System.out.println("Would you like to play again? y - yes; n - no");
+                    String choice = scanner.nextLine();
+                    if (choice.equals("y")) {
+                        newGame();
+                        rightSign = true;
+                    } else if (choice.equals("n")) {
+                        endOfGame();
+                        rightSign = true;
+                        if (!end) {
+                            newGame();
+                        }
+                    } else {
+                        System.out.println("Wrong sign!");
+                    }
                 }
             }
         } else if (userChoice.equals("x")) {
             endOfGame();
         } else if (userChoice.equals("n")) {
             newGame();
+        } else {
+            System.out.println("Wrong sign!");
         }
     }
 }
