@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class RpsGame {
 
+    public static final int ROCK = 1;
     private String playerName;
     private int roundsNumber;
     private int playerWinsNumber = 0;
@@ -18,7 +19,7 @@ public class RpsGame {
     }
 
     private void round(int computerMove, int playerMove) {
-        if (playerMove == 1 && computerMove == 2) {
+        if (playerMove == ROCK && computerMove == 2) {
             computerWinsNumber++;
             System.out.println("Computer - paper; " + playerName + " - rock. Computer won this round.");
         }
