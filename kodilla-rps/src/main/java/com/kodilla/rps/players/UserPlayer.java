@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 public class UserPlayer implements Player {
 
+    public static final String EXIT = "x";
+    public static final String NEW_GAME = "n";
     private String playerName;
     private Scanner scanner = new Scanner(System.in);
 
@@ -34,9 +36,9 @@ public class UserPlayer implements Player {
                 throw new WrongNumberException();
             }
         } catch (NumberFormatException e) {
-            if (move.equals("x")){
+            if (move.equals(EXIT)){
                 throw new EndGameException();
-            } else if (move.equals("n")) {
+            } else if (move.equals(NEW_GAME)) {
                 throw new NewGameException();
             } else {
                 throw new WrongNumberException();

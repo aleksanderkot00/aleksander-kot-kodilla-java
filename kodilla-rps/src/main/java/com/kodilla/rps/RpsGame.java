@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class RpsGame {
 
+    public static final String YES = "y";
     private List<Player> players;
     private int roundsNumber;
     private int playerWinsNumber = 0;
@@ -75,7 +76,7 @@ public class RpsGame {
 
     private void endOfGame() {
         System.out.println("Are you sure that you wont end this game? y - yes; n - no");
-        if (scanner.nextLine().equals("y")) {
+        if (scanner.nextLine().equals(YES)) {
             end = true;
             System.out.println("End of the game.");
         }
