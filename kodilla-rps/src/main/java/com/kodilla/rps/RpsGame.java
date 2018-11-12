@@ -3,6 +3,8 @@ package com.kodilla.rps;
 import com.kodilla.rps.exceptions.EndGameException;
 import com.kodilla.rps.exceptions.NewGameException;
 import com.kodilla.rps.exceptions.WrongNumberException;
+import com.kodilla.rps.figures.Figure;
+import com.kodilla.rps.players.Player;
 
 import java.util.List;
 import java.util.Scanner;

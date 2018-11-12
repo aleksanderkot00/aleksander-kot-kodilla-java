@@ -1,11 +1,11 @@
-package com.kodilla.rps;
+package com.kodilla.rps.figures;
 
-public class Scissors implements Figure {
+public class Rock implements Figure {
 
     public int winWith(Figure figure) {
         if ( getClass().getSimpleName().equals(figure.getClass().getSimpleName()) ) {
             return DRAW;
-        } else if ( figure.getClass().getSimpleName().equals(Paper.class.getSimpleName()) ) {
+        } else if ( figure.getClass().getSimpleName().equals(Scissors.class.getSimpleName()) ) {
             return WIN;
         } else {
             return LOSS;

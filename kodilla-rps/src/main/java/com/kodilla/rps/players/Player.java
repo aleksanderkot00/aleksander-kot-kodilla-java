@@ -1,8 +1,9 @@
-package com.kodilla.rps;
+package com.kodilla.rps.players;
 
 import com.kodilla.rps.exceptions.EndGameException;
 import com.kodilla.rps.exceptions.NewGameException;
 import com.kodilla.rps.exceptions.WrongNumberException;
+import com.kodilla.rps.figures.Figure;
 
 public interface Player {
 

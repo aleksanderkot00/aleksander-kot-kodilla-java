@@ -1,4 +1,8 @@
 package com.kodilla.rps;
+import com.kodilla.rps.players.ComputerPlayer;
+import com.kodilla.rps.players.Player;
+import com.kodilla.rps.players.UserPlayer;
+
 import java.util.*;
 
 public class RpsRunner {

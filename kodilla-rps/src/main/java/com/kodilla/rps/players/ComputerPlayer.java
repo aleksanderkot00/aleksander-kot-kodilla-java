@@ -1,4 +1,9 @@
-package com.kodilla.rps;
+package com.kodilla.rps.players;
+
+import com.kodilla.rps.figures.Figure;
+import com.kodilla.rps.figures.Paper;
+import com.kodilla.rps.figures.Rock;
+import com.kodilla.rps.figures.Scissors;
 
 import java.util.Random;
 
