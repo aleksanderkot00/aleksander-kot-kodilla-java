@@ -2,7 +2,7 @@ package com.kodilla.rps.players;
 
 import com.kodilla.rps.exceptions.EndGameException;
 import com.kodilla.rps.exceptions.NewGameException;
-import com.kodilla.rps.exceptions.WrongNumberException;
+import com.kodilla.rps.exceptions.WrongSignException;
 import com.kodilla.rps.figures.Figure;
 
 public interface Player {
@@ -11,6 +11,6 @@ public interface Player {
     int PAPER = 2;
     int SCISSORS = 3;
 
-    Figure playerMove() throws WrongNumberException, NewGameException, EndGameException;
+    Figure playerMove() throws WrongSignException, NewGameException, EndGameException;
     String getPlayerName();
 }

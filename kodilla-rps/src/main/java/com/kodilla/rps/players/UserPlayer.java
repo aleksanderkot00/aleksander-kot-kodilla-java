@@ -2,7 +2,7 @@ package com.kodilla.rps.players;
 
 import com.kodilla.rps.exceptions.EndGameException;
 import com.kodilla.rps.exceptions.NewGameException;
-import com.kodilla.rps.exceptions.WrongNumberException;
+import com.kodilla.rps.exceptions.WrongSignException;
 import com.kodilla.rps.figures.Figure;
 import com.kodilla.rps.figures.Paper;
 import com.kodilla.rps.figures.Rock;
@@ -21,7 +21,7 @@ public class UserPlayer implements Player {
         this.playerName = playerName;
     }
 
-    public Figure playerMove() throws WrongNumberException, NewGameException, EndGameException {
+    public Figure playerMove() throws WrongSignException, NewGameException, EndGameException {
 
         String move = scanner.nextLine();
         try {
@@ -33,7 +33,7 @@ public class UserPlayer implements Player {
             } else if (intMove == SCISSORS) {
                 return new Scissors();
             } else {
-                throw new WrongNumberException();
+                throw new WrongSignException();
             }
         } catch (NumberFormatException e) {
             if (move.equals(EXIT)){
@@ -41,7 +41,7 @@ public class UserPlayer implements Player {
             } else if (move.equals(NEW_GAME)) {
                 throw new NewGameException();
             } else {
-                throw new WrongNumberException();
+                throw new WrongSignException();
             }
         }
     }

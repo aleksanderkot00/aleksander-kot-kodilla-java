@@ -2,7 +2,7 @@ package com.kodilla.rps;
 
 import com.kodilla.rps.exceptions.EndGameException;
 import com.kodilla.rps.exceptions.NewGameException;
-import com.kodilla.rps.exceptions.WrongNumberException;
+import com.kodilla.rps.exceptions.WrongSignException;
 import com.kodilla.rps.figures.Figure;
 import com.kodilla.rps.players.Player;
 
@@ -25,7 +25,7 @@ public class RpsGame {
         this.roundsNumber = roundsNumber;
     }
 
-    private void round() throws WrongNumberException, NewGameException, EndGameException {
+    private void round() throws WrongSignException, NewGameException, EndGameException {
         if (players.size() > 1) {
             Figure move = players.get(0).playerMove();
             if (move.winWith(players.get(1).playerMove()) == Figure.WIN) {
@@ -41,7 +41,7 @@ public class RpsGame {
             stateOfGame();
             try {
                 round();
-            } catch (WrongNumberException e) {
+            } catch (WrongSignException e) {
                 System.out.println("Wrong sign!");
             } catch (NewGameException e) {
                 newGame();
