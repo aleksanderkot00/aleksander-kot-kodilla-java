@@ -2,7 +2,7 @@ package com.kodilla.rps;
 
 import java.util.Random;
 
-public class computerPlayer implements Player {
+public class ComputerPlayer implements Player {
 
     private String playerName = "Computer";
 

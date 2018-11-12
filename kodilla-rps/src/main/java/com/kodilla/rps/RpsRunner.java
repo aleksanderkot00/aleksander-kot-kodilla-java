@@ -8,8 +8,8 @@ public class RpsRunner {
 
         System.out.println("Rock-paper-scissors game. \nWhat is your name?");
         String playerName = scanner.nextLine();
-        Player player = new userPlayer(playerName);
-        Player computer = new computerPlayer();
+        Player player = new UserPlayer(playerName);
+        Player computer = new ComputerPlayer();
         List<Player> players = new ArrayList<>();
         players.add(player);
         players.add(computer);
