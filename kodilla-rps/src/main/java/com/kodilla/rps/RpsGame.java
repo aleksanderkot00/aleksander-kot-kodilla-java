@@ -12,17 +12,18 @@ import java.util.Scanner;
 
 public class RpsGame {
 
-    public static final String YES = "y";
+    private static final String YES = "y";
+    private static final String NO = "n";
+    private static final String EXIT = "x";
     private List<Player> players;
-    private int roundsNumber;
-    private int playerWinsNumber = 0;
-    private int computerWinsNumber = 0;
+    private int roundsNumber = 0;
+    private int playerWinsNumber;
+    private int computerWinsNumber;
     private boolean end = false;
     private Scanner scanner = new Scanner(System.in);
 
-    public RpsGame(List<Player> players, int roundsNumber) {
+    public RpsGame(List<Player> players) {
         this.players = players;
-        this.roundsNumber = roundsNumber;
     }
 
     private void round() throws WrongSignException, NewGameException, EndGameException {
@@ -56,7 +57,7 @@ public class RpsGame {
                 } else {
                     System.out.println("You lost the game!");
                 }
-                end = true;
+                newGame();
             }
         }
     }
@@ -67,18 +68,47 @@ public class RpsGame {
         System.out.println("1 - rock; 2 - paper; 3 - scissors; x - end of the game; n - new game");
     }
 
-    private void newGame() {
-        System.out.println("How many rounds would you like to play to?");
-        roundsNumber = scanner.nextInt();
+    public void newGame() {
+
         playerWinsNumber = 0;
         computerWinsNumber = 0;
+        boolean correctString = false;
+        while (!correctString){
+            System.out.println("How many rounds would you like to play to? \nx - end of the game");
+            String stringRoundsNumber = scanner.nextLine();
+            if (stringRoundsNumber.equals(EXIT)) {
+                correctString = true;
+                endOfGame();
+            }
+            else {
+                try {
+                    roundsNumber = Integer.parseInt(stringRoundsNumber);
+                    if (roundsNumber > 0) {
+                        correctString = true;
+                    } else {
+                        System.out.println("Wrong sign! You must enter positive number.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Wrong sign! You must enter positive number.");
+                }
+            }
+        }
     }
 
     private void endOfGame() {
-        System.out.println("Are you sure that you wont end this game? y - yes; n - no");
-        if (scanner.nextLine().equals(YES)) {
-            end = true;
-            System.out.println("End of the game.");
+        boolean endWhile = false;
+        while (!endWhile) {
+        System.out.println("Are you sure that you wont end this game? \ny - yes; n - no");
+            String confirmation = scanner.nextLine();
+            if (confirmation.equals(YES)) {
+                end = true;
+                endWhile = true;
+                System.out.println("End of the game.");
+            } else if (confirmation.equals(NO)) {
+                endWhile = true;
+            } else {
+                System.out.println("Wrong sign!");
+            }
         }
     }
 }
