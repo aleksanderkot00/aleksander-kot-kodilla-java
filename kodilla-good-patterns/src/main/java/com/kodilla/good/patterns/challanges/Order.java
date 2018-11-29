@@ -7,14 +7,14 @@ public class Order {
     private String type;
     private String orderNumber;
     private double price;
-    private LocalDateTime orderingDate;
-    private LocalDateTime deliveryDate;
+    private LocalDateTime submitDate;
+    private LocalDateTime executionDate;
 
-    public Order(String type, String orderNumber, double price, LocalDateTime orderingDate, LocalDateTime deliveryDate) {
+    public Order(String type, String orderNumber, double price, LocalDateTime submitDate, LocalDateTime executionDate) {
         this.type = type;
         this.orderNumber = orderNumber;
         this.price = price;
-        this.orderingDate = orderingDate;
-        this.deliveryDate = deliveryDate;
+        this.submitDate = submitDate;
+        this.executionDate = executionDate;
     }
 }
