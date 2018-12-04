@@ -11,8 +11,8 @@ public class ExtraFoodShop implements Producer {
     }
 
     private boolean orderVerifier(Map<Product, Integer> order) {
-            for(Map.Entry<Product, Integer> entry: order.entrySet()) {
-                if ( entry.getValue() < 0 || entry.getValue() > resources.get(entry.getKey()) ) {
+            for (Map.Entry<Product, Integer> entry: order.entrySet()) {
+                if (entry.getValue() < 0 || entry.getValue() > resources.get(entry.getKey())) {
                     return false;
                 }
             }
