@@ -6,17 +6,17 @@ public class Main {
         FlightsFinder flightsFinder = new FlightsFinder();
 
         System.out.println("Flights to Goleniow:");
-        for(Flight flight: flightsFinder.flightsTo("Goleniow")) {
+        for (Flight flight: flightsFinder.flightsTo("Goleniow")) {
             System.out.println(flight);
         }
 
         System.out.println("\nFlights from Warszawa:");
-        for(Flight flight: flightsFinder.flightsFrom("Warszawa")) {
+        for (Flight flight: flightsFinder.flightsFrom("Warszawa")) {
             System.out.println(flight);
         }
 
         System.out.println("\n Connecting flights from Warszawa to Krakow:");
-        for(ConnectingFlight connectingFlight: flightsFinder.connectingFlights("Warszawa", "Wroclaw")) {
+        for (ConnectingFlight connectingFlight: flightsFinder.connectingFlights("Warszawa", "Wroclaw")) {
             System.out.println(connectingFlight);
         }
     }

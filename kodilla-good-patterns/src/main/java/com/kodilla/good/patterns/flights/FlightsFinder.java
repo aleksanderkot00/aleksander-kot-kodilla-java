@@ -29,8 +29,8 @@ public class FlightsFinder {
 
     public Set<ConnectingFlight> connectingFlights(String departureCity, String arrivalCity) {
         Set<ConnectingFlight> result = new HashSet<>();
-        for(Flight firstFlight: flightsFrom(departureCity)) {
-            for(Flight secondFlight: flightsTo(arrivalCity)) {
+        for (Flight firstFlight: flightsFrom(departureCity)) {
+            for (Flight secondFlight: flightsTo(arrivalCity)) {
                 if (firstFlight.getArrivalCity().equals(secondFlight.getDepartureCity())) {
                     result.add(new ConnectingFlight(firstFlight, secondFlight));
                 }
