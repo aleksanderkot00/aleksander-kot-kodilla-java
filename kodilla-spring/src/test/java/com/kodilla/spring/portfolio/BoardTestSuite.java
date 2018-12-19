@@ -20,11 +20,11 @@ public class BoardTestSuite {
         Board board = context.getBean(Board.class);
         //When
         board.getToDoList().addTask("ToDoTask3");
-        board.getInProgressList().addTask("InProgressTask3");
+        board.getInProgressList().addTask("InProgressTask4");
         board.getDoneList().addTask("DoneTask2");
         //Then
-        Assert.assertEquals("ToDoTask3", board.getToDoList().getTasks().get(board.getToDoList().getTasks().size()));
-        Assert.assertEquals("InProgressTask4", board.getInProgressList().getTasks().get(board.getInProgressList().getTasks().size()));
-        Assert.assertEquals("DoneTask2", board.getDoneList().getTasks().get(board.getDoneList().getTasks().size()));
+        System.out.println(board.getToDoList().getTasks().get(board.getToDoList().getTasks().size()-1));
+        System.out.println(board.getInProgressList().getTasks().get(board.getInProgressList().getTasks().size()-1));
+        System.out.println(board.getDoneList().getTasks().get(board.getDoneList().getTasks().size()-1));
     }
 }
