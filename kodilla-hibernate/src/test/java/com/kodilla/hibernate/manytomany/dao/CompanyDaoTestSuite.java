@@ -18,6 +18,7 @@ public class CompanyDaoTestSuite {
     CompanyDao companyDao;
     @Autowired
     EmployeeDao employeeDao;
+
     @Test
     public void testSaveManyToMany(){
         //Given
@@ -113,12 +114,10 @@ public class CompanyDaoTestSuite {
         int lindaSmithId = lindaSmith.getId();
 
         //When
-
         List<Employee> employeesWithLastNameClarckson = employeeDao.retrieveEmployeesWithLastname("Clarckson");
         List<Employee> employeesWithLastNameSmith = employeeDao.retrieveEmployeesWithLastname("Smith");
 
         //Then
-
         try {
             Assert.assertEquals(1, employeesWithLastNameClarckson.size());
             Assert.assertEquals(2, employeesWithLastNameSmith.size());
