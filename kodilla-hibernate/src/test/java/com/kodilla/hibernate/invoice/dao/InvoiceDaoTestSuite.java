@@ -55,7 +55,7 @@ public class InvoiceDaoTestSuite {
 
         //CleanUp
         try {
-            invoiceDao.delete(invoice);
+            invoiceDao.delete(invoiceId);
         } catch (Exception e) {
             //do nothing
         }
