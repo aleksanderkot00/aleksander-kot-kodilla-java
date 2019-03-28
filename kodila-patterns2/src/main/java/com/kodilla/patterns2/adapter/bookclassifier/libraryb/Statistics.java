@@ -1,6 +1,5 @@
 package com.kodilla.patterns2.adapter.bookclassifier.libraryb;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -26,7 +25,7 @@ public class Statistics implements BookStatistics {
         }
         Arrays.sort(years);
         if (years.length % 2 == 0) {
-            return ( years[years.length / 2] + years[years.length / 2 - 1] ) / 2 + 1;
+            return ( years[years.length / 2] + years[years.length / 2 - 1] ) / 2;
         } else {
             return years[(years.length - 1) / 2];
         }
