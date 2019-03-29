@@ -23,8 +23,8 @@ public class CompanyDaoTestSuite {
     public void testSaveManyToMany(){
         //Given
         Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+        Employee stephanieClarckson = new Employee("Stephabcnie", "Clabcrckson");
+        Employee lindaKovalsky = new Employee("Lindabc", "Kovalskya");
 
         Company softwareMachine = new Company("Software Machine");
         Company dataMaesters = new Company("Data Maesters");
@@ -56,13 +56,13 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, greyMatterId);
 
         //CleanUp
-        try {
-            companyDao.delete(softwareMachineId);
-            companyDao.delete(dataMaestersId);
-            companyDao.delete(greyMatterId);
-        } catch (Exception e) {
-            //do nothing
-        }
+//        try {
+//            companyDao.delete(softwareMachineId);
+//            companyDao.delete(dataMaestersId);
+//            companyDao.delete(greyMatterId);
+//        } catch (Exception e) {
+//            //do nothing
+//        }
     }
 
     @Test
@@ -127,5 +127,11 @@ public class CompanyDaoTestSuite {
             employeeDao.delete(stephanieClarcksonId);
             employeeDao.delete(lindaSmithId);
         }
+    }
+
+    @Test
+    public void testFindByPartOfName(){
+        List<Employee> employees = employeeDao.findByPartOfName("abcada");
+        System.out.println(employees.size());
     }
 }

@@ -4,11 +4,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
-@NamedQuery(
-        name = "Employee.retrieveEmployeesWithLastname",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
-)
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.retrieveEmployeesWithLastname",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
+        @NamedQuery(
+                name = "Employee.findByPartOfName",
+                query = "FROM Employee WHERE lastname LIKE CONCAT('%',:PARTOFNAME,'%') " +
+                        "OR firstname LIKE CONCAT('%',:PARTOFNAME,'%')"
+        )
+})
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
